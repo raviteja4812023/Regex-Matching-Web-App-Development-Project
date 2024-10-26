@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .regex-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .regex-sub-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .container {
+            width: 500px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .regex-validation {
+            background-color: #f9f9f9;
+        }
+
+        .email-validation {
+            background-color: #eaf7ff;
+        }
+        .regex-validation h2 {
+            color: #28a745; /* Green title for regex section */
+        }
+
+        .email-validation h2 {
+            color: #dc3545; /* Red title for email section */
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 15px;
+
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        /* Submit button for regex validation */
+        .regex-validation input[type="submit"] {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745; /* Green button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Submit button for email validation */
+        .email-validation input[type="submit"] {
+            width: 100%;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #dc3545; /* Red button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+
+        }
+
+        /* Add hover effect for the buttons */
+        input[type="submit"]:hover {
+            opacity: 0.9;
+        }
+
+     
+    </style>
+</head>
+<body>
+    <div class="regex-container">
+        <h1>Regex Web App</h1>
+        <div class="regex-sub-container">
+            <div class="container regex-validation">
+                <!-- Regex Validation Form -->
+                <div class="form-group">
+                    <h2>Regex Validation</h2>
+                    <form action="/results" method="POST">
+                        <label for="test_string">Test String:</label>
+                        <input type="text" id="test_string" name="test_string">
+                        <label for="regex_pattern">Regex Pattern:</label>
+                        <input type="text" id="regex_pattern" name="regex_pattern">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="container email-validation">
+                <!-- Email Validation Form -->
+                <div class="form-group">
+                    <h2>Email Validation</h2>
+                    <form action="/validate_email" method="POST">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email">
+                        <input type="submit" value="Validate Email">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

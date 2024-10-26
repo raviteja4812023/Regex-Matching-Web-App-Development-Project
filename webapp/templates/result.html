@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #0056b3;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .results-section {
+            margin-top: 20px;
+        }
+
+        .matches-found {
+            color: #28a745;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .matches-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .matches-list li {
+            background-color: #c3e6cb;
+            padding: 12px 20px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .email-valid {
+            color: #28a745;
+            background-color: #e6f4e7;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .email-invalid {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .no-results {
+            color: #6c757d;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .unable-validation {
+            padding: 10px;
+            color: #ffc107;
+            background-color: #fff3cd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Regex Results</h1>
+        <div class="results-section">
+            {% if matches %}
+                <h2 class="matches-found">Matches Found:</h2>
+                <ul class="matches-list">
+                    {% for match in matches %}
+                        <li>{{ match }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h2>Email Validation Result:</h2>
+                {% if validation_result == 'Valid Email' %}
+                    <p class="email-valid">{{ validation_result }}</p>
+                {% elif validation_result == 'Invalid Email' %}
+                    <p class="email-invalid">{{ validation_result }}</p>
+                {% else %}
+                    <p class="unable-validation">Unable to validate email.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
